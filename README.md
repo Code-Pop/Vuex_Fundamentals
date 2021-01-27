@@ -1,4 +1,4 @@
-# real-world-vue
+# Intro to State Management
 
 ## Project setup
 ```
