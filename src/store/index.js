@@ -4,7 +4,8 @@ import EventService from '@/services/EventService'
 export default createStore({
   state: {
     user: 'Adam Jahr',
-    events: []
+    events: [],
+    event: null
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -25,7 +26,7 @@ export default createStore({
           commit('SET_EVENT', event)
         })
         .catch(error => {
-          throw error // ??
+          throw error
         })
     },
     fetchEvents({ commit }) {
@@ -34,26 +35,32 @@ export default createStore({
           commit('SET_EVENTS', response.data)
         })
         .catch(error => {
-          throw error // ??
+          throw error
         })
     },
     fetchEvent({ commit, getters }, id) {  
-      var event = getters.getEventById(id)
+      const event = getters.getEventById(id) // Or should I just do:
+      // const event = state.events.find(event => event.id === id)
+      // maybe getters are introduced in the follow-up Vuex course?
       if (event) {
         commit('SET_EVENT', event)
-        return event
+        // return event // need to return this event?
       } else {
-        return EventService.getEvent(id).then(response => {
-          commit('SET_EVENT', response.data)
-          return response.data
-        })
+        return EventService.getEvent(id)
+          .then(response => {
+            commit('SET_EVENT', response.data)
+            // return response.data  // need to return this response?
+          })
+          .catch(error => {
+            throw error
+          })
       }
     }
   },
   getters: {
     getEventById: state => id => {
       return state.events.find(event => event.id === id)
-    }
+    } 
   },
   modules: {}
 })

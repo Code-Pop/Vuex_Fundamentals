@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid'
 export default {
   data () {
     return {
@@ -77,18 +78,21 @@ export default {
     onSubmit() {
       this.$store.dispatch('createEvent', this.event)
       .then( () => {
-        this.freshEventObject()
+        this.freshEventObject() // correct placement?
         this.$router.push({
           name: 'EventDetails',
           params: { id: this.event.id }
         })
       })
       .catch( error => {
-        console.log('error creating the event:', error)
+        this.$router.push({
+          name: 'ErrorDisplay',
+          params: { error: error }
+        })
       })
     },
     freshEventObject() {
-      const id = Math.floor(Math.random() * 10000000) // ??
+      const id = uuidv4()
       const user = this.$store.state.user
 
       return {
