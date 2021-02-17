@@ -52,6 +52,5 @@ export default createStore({
           })
       }
     }
-  },
-  modules: {}
+  }
 })
