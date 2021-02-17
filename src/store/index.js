@@ -38,29 +38,20 @@ export default createStore({
           throw error
         })
     },
-    fetchEvent({ commit, getters }, id) {  
-      const event = getters.getEventById(id) // Or should I just do:
-      // const event = state.events.find(event => event.id === id)
-      // maybe getters are introduced in the follow-up Vuex course?
+    fetchEvent({ commit }, id) {  
+      const event = state.events.find(event => event.id === id)
       if (event) {
         commit('SET_EVENT', event)
-        // return event // need to return this event?
       } else {
         return EventService.getEvent(id)
           .then(response => {
             commit('SET_EVENT', response.data)
-            // return response.data  // need to return this response?
           })
           .catch(error => {
             throw error
           })
       }
     }
-  },
-  getters: {
-    getEventById: state => id => {
-      return state.events.find(event => event.id === id)
-    } 
   },
   modules: {}
 })
