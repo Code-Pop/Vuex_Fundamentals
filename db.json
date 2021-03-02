@@ -29,6 +29,26 @@
       "date": "July 22, 2022",
       "time": "11:00",
       "organizer": "Carey Wales"
+    },
+    {
+      "id": "c9018c20-96c9-4818-adbe-06affb38ae12",
+      "category": "animal welfare",
+      "title": "Horse Brushing Race",
+      "description": "Who's the mane?",
+      "location": "Stable City",
+      "date": "August 18, 2028",
+      "time": "2:00",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "4cf0b60b-6dbf-461f-9d90-fd63e6077e36",
+      "category": "animal welfare",
+      "title": "Kangaroo Combing Competition",
+      "description": "What does this event look like?",
+      "location": "Outback",
+      "date": "Sept 4, 2025",
+      "time": "3:00",
+      "organizer": "Adam Jahr"
     }
   ]
 }
