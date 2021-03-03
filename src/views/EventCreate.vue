@@ -90,13 +90,14 @@ export default {
   },
   methods: {
     onSubmit() {
-			EventService.postEvent({
-          ...this.event,
-          id: uuidv4(),
-          organizer: this.$store.state.user
-      })
+      const event = {
+        ...this.event,
+        id: uuidv4(),
+        organizer: this.$store.state.user
+      }
+			EventService.postEvent(event)
 		  .then(() => {
-		    this.$store.commit('ADD_EVENT', this.event)
+		    this.$store.commit('ADD_EVENT', event)
 	    })
 	    .catch(error => {
 		    console.log('There was an error:', error)
