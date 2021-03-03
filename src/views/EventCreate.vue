@@ -90,23 +90,18 @@ export default {
   },
   methods: {
     onSubmit() {
-			EventService.postEvent(this.event)
-		    .then(() => {
-		      this.$store.commit('ADD_EVENT', this.event)
-	      })
-	      .catch(error => {
-		      console.log('There was an error:', error)
-	      })
-		 }
-  },
-  computed: {
-    organizer() {
-      return this.$store.state.user
-    }
-  },
-  mounted() {
-    this.event.id = uuidv4()
-    this.event.organizer = this.organizer
+			EventService.postEvent({
+          ...this.event,
+          id: uuidv4(),
+          organizer: this.$store.state.user
+      })
+		  .then(() => {
+		    this.$store.commit('ADD_EVENT', this.event)
+	    })
+	    .catch(error => {
+		    console.log('There was an error:', error)
+	    })
+		}
   }
 }
 </script>
