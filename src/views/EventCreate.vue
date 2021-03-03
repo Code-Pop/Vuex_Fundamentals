@@ -89,17 +89,10 @@ export default {
   },
   methods: {
     onSubmit() {
+      this.event.id = uuidv4()
+      this.event.organizer = this.$store.state.user
       console.log("Event:", this.event)
     }
-  },
-  computed: {
-    organizer() {
-      return this.$store.state.user
-    }
-  },
-  mounted() {
-    this.event.id = uuidv4()
-    this.event.organizer = this.organizer
   }
 }
 </script>
