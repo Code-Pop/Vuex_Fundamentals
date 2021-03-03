@@ -29,6 +29,16 @@
       "date": "July 22, 2022",
       "time": "11:00",
       "organizer": "Carey Wales"
+    },
+    {
+      "id": "a152ac03-97b2-4a79-884a-89baf7b4b0d7",
+      "category": "education",
+      "title": "Learning Luncheon",
+      "description": "Are you hungry for knowledge?",
+      "location": "The Library",
+      "date": "September 15, 2024",
+      "time": "12:00",
+      "organizer": "Adam Jahr"
     }
   ]
 }
