@@ -39,6 +39,16 @@
       "date": "September 15, 2024",
       "time": "12:00",
       "organizer": "Adam Jahr"
+    },
+    {
+      "id": "cd36e61c-4c13-45cf-b44e-6aede29c6f10",
+      "category": "food",
+      "title": "Community Potluck",
+      "description": "Bring a dish to share.",
+      "location": "A covid-free place in the future.",
+      "date": "May 20, 2024",
+      "time": "1:00",
+      "organizer": "Adam Jahr"
     }
   ]
 }
