@@ -100,7 +100,7 @@ export default {
 		    this.$store.commit('ADD_EVENT', event)
 	    })
 	    .catch(error => {
-		    console.log('There was an error:', error)
+		    console.log(error)
 	    })
 		}
   }
