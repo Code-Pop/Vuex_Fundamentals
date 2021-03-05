@@ -20,7 +20,7 @@ export default createStore({
   },
   actions: {
     createEvent({ commit }, event) {
-      return EventService.postEvent(event)
+      EventService.postEvent(event)
 		  .then(() => {
 		    commit('ADD_EVENT', event)
 	    })
@@ -29,7 +29,7 @@ export default createStore({
 	    })
     },
     fetchEvents({ commit }) {
-      return EventService.getEvents()
+      EventService.getEvents()
         .then(response => {
           commit('SET_EVENTS', response.data)
         })
@@ -42,7 +42,7 @@ export default createStore({
         if (existingEvent) {
           commit('SET_EVENT', existingEvent)
         } else {
-        return EventService.getEvent(id)
+        EventService.getEvent(id)
         .then(response => {
           commit('SET_EVENT', response.data)
         })

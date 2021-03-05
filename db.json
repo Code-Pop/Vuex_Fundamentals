@@ -49,6 +49,46 @@
       "date": "May 20, 2024",
       "time": "1:00",
       "organizer": "Adam Jahr"
+    },
+    {
+      "id": "110e8dea-5ed5-47d2-acd7-a65478839aa6",
+      "category": "housing",
+      "title": "House Event Test",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "0193dd4c-1879-4657-9678-e9171210fc3f",
+      "category": "nature",
+      "title": "Nature Event",
+      "description": "Description here",
+      "location": "wilderness",
+      "date": "July 4",
+      "time": "9:00",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "afbad1fc-7727-449c-bc36-004ed9847756",
+      "category": "education",
+      "title": "Education Event",
+      "description": "Learning time",
+      "location": "School",
+      "date": "July 4",
+      "time": "9:00",
+      "organizer": "Adam Jahr"
+    },
+    {
+      "id": "b1220465-e318-4a8f-976d-e125fa608811",
+      "category": "animal welfare",
+      "title": "Monkey Test",
+      "description": "dfjhdkj",
+      "location": "locafkjdf",
+      "date": "July 4",
+      "time": "9:00",
+      "organizer": "Adam Jahr"
     }
   ]
 }
