@@ -7,22 +7,26 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     EventCard
   },
   created() {
-    this.$store.dispatch('fetchEvents').catch(error => {
-      this.$router.push({
-        name: 'ErrorDisplay',
-        params: { error: error }
+    this.fetchEvents() 
+      .catch(error => {
+        this.$router.push({
+          name: 'ErrorDisplay',
+          params: { error: error }
+        })
       })
-    })
   },
   computed: {
     ...mapState(['events', 'user'])
+  },
+  methods: {
+    ...mapActions(['fetchEvents'])
   }
 }
 </script>

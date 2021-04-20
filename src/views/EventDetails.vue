@@ -7,20 +7,24 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
   created() {
-    this.$store.dispatch('fetchEvent', this.id).catch(error => {
-      this.$router.push({
-        name: 'ErrorDisplay',
-        params: { error: error }
+    this.fetchEvent(this.id)
+      .catch(error => {
+        this.$router.push({
+          name: 'ErrorDisplay',
+          params: { error: error }
+        })
       })
-    })
   },
   computed: {
     ...mapState(['event'])
+  },
+  methods: {
+    ...mapActions(['fetchEvent'])
   }
 }
 </script>
