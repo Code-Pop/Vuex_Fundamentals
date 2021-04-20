@@ -1,9 +1,9 @@
 import { createStore } from 'vuex'
 import EventService from '@/services/EventService.js'
+import user from './modules/user.js'
 
 export default createStore({
   state: {
-    user: 'Adam Jahr',
     events: [],
     event: {}
   },
@@ -52,5 +52,5 @@ export default createStore({
       }
     }
   },
-  modules: {}
+  modules: { user }
 })
