@@ -25,4 +25,16 @@ describe('EventList', () => {
       expect(title.text()).toContain('Events for Good')
     })
   })
+  
+  describe('events', () => {
+    it('are rendered in list', () => {
+      const wrapper = mount(EventList, {
+        global: {
+          plugins: [store, router]
+        }
+      })
+      const events = wrapper.findAll('[data-testid=event]')
+      expect(events).toHaveLength(3)
+    })
+  })
 })

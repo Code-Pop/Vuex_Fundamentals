@@ -7,7 +7,7 @@
       v-for="event in events"
       :key="event.id"
     >
-      <EventCard :event="event" />
+      <EventCard data-testid="event" :event="event" />
     </router-link>
   </div>
 </template>
