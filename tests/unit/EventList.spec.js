@@ -1,6 +1,6 @@
 import EventList from '@/views/EventList'
 import { mount } from '@vue/test-utils'
-import store from '@/store'
+import { createStore } from '@/store'
 import router from '@/router'
 
 function mountEventList(config = {}) {
@@ -8,7 +8,10 @@ function mountEventList(config = {}) {
   config.plugins = config.plugins || {}
   return mount(EventList, {
     global: {
-      plugins: [store, router]
+      plugins: [
+        createStore(config.plugins.store), 
+        router
+      ]
     },
     ...config.mountOptions
   })
