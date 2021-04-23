@@ -34,7 +34,7 @@ describe('EventList', () => {
   })
   
   describe('events', () => {
-    it('are rendered in a list', () => {
+    it('are rendered in a list with necessary information', () => {
       const wrapper = mountEventList({
         plugins: {
           store: {
@@ -46,6 +46,12 @@ describe('EventList', () => {
       })
       const events = wrapper.findAll('[data-testid=event]')
       expect(events).toHaveLength(mockEvents.length)
+
+      events.forEach((event, i) => {
+        const eventText = event.text()
+        expect(eventText).toContain(mockEvents[i].title)
+        expect(eventText).toContain(mockEvents[i].date)
+      })
     })
   })
 })
