@@ -2,6 +2,7 @@ import EventList from '@/views/EventList'
 import { mount } from '@vue/test-utils'
 import { createStore } from '@/store'
 import router from '@/router'
+import { events as mockEvents } from '../../db.json'
 
 function mountEventList(config = {}) {
   config.mountOptions = config.mountOptions || {}
@@ -32,11 +33,19 @@ describe('EventList', () => {
     })
   })
   
-  xdescribe('events', () => {
-    it('are rendered in list', () => {
-      const wrapper = mountEventList()
+  describe('events', () => {
+    it('are rendered in a list', () => {
+      const wrapper = mountEventList({
+        plugins: {
+          store: {
+            state: () => ({
+              events: mockEvents
+            })
+          }
+        }
+      })
       const events = wrapper.findAll('[data-testid=event]')
-      expect(events).toHaveLength(3)
+      expect(events).toHaveLength(mockEvents.length)
     })
   })
 })
