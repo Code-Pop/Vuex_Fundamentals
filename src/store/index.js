@@ -1,11 +1,11 @@
 import { createStore } from 'vuex'
-import EventService from '@/services/EventService.js'
+import EventService from '@/services/EventService'
 
 export default createStore({
   state: {
     user: 'Adam Jahr',
     events: [],
-    event: {}
+    event: null
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -23,6 +23,7 @@ export default createStore({
       return EventService.postEvent(event)
         .then(() => {
           commit('ADD_EVENT', event)
+          commit('SET_EVENT', event)
         })
         .catch(error => {
           throw error
@@ -37,10 +38,10 @@ export default createStore({
           throw error
         })
     },
-    fetchEvent({ commit, state }, id) {
-      const existingEvent = state.events.find(event => event.id === id)
-      if (existingEvent) {
-        commit('SET_EVENT', existingEvent)
+    fetchEvent({ commit, getters }, id) {
+      const event = getters.getEventById(id)
+      if (event) {
+        commit('SET_EVENT', event)
       } else {
         return EventService.getEvent(id)
           .then(response => {
@@ -50,6 +51,11 @@ export default createStore({
             throw error
           })
       }
+    }
+  },
+  getters: {
+    getEventById: state => id => {
+      return state.events.find(event => event.id === id)
     }
   },
   modules: {}
