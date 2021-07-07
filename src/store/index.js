@@ -38,7 +38,7 @@ const storeConfiguration = {
           throw error
         })
     },
-    fetchEvent({ commit, getters }, id) {  
+    fetchEvent({ commit, getters }, id) {
       const event = getters.getEventById(id)
       if (event) {
         commit('SET_EVENT', event)
@@ -56,7 +56,7 @@ const storeConfiguration = {
   getters: {
     getEventById: state => id => {
       return state.events.find(event => event.id === id)
-    } 
+    }
   },
   modules: {}
 }
