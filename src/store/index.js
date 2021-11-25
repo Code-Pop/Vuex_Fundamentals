@@ -5,7 +5,7 @@ const storeConfiguration = {
   state: {
     user: 'Adam Jahr',
     events: [],
-    event: null,
+    event: null
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -16,7 +16,7 @@ const storeConfiguration = {
     },
     SET_EVENTS(state, events) {
       state.events = events
-    },
+    }
   },
   actions: {
     createEvent({ commit }, event) {
@@ -51,26 +51,26 @@ const storeConfiguration = {
             throw error
           })
       }
-    },
+    }
   },
   getters: {
     getEventById: (state) => (id) => {
       return state.events.find((event) => event.id === id)
-    },
+    }
   },
-  modules: {},
+  modules: {}
 }
 
 const defaultOverrides = {
   state: () => {
     return {}
-  },
+  }
 }
 
 function makeState(initialState, overrideState) {
   return {
     ...(typeof initialState === 'function' ? initialState() : initialState),
-    ...overrideState(),
+    ...overrideState()
   }
 }
 
@@ -79,8 +79,8 @@ export function createStore(storeOverrides = defaultOverrides) {
     ...storeConfiguration,
     ...storeOverrides,
     ...{
-      state: makeState(storeConfiguration.state, storeOverrides.state),
-    },
+      state: makeState(storeConfiguration.state, storeOverrides.state)
+    }
   })
 }
 

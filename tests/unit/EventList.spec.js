@@ -9,9 +9,9 @@ function mountEventList(config = {}) {
   config.plugins = config.plugins || {}
   return mount(EventList, {
     global: {
-      plugins: [createStore(config.plugins.store), router],
+      plugins: [createStore(config.plugins.store), router]
     },
-    ...config.mountOptions,
+    ...config.mountOptions
   })
 }
 
@@ -40,10 +40,10 @@ describe('EventList', () => {
         plugins: {
           store: {
             state: () => ({
-              events: mockEvents,
-            }),
-          },
-        },
+              events: mockEvents
+            })
+          }
+        }
       })
       const events = wrapper.findAll('[data-testid=event]')
       expect(events).toHaveLength(mockEvents.length)
