@@ -61,7 +61,11 @@ input {
   margin-bottom: 24px;
 }
 
+<<<<<<< Updated upstream
 input[type='text'] {
+=======
+input[type="text"] {
+>>>>>>> Stashed changes
   padding: 0px 10px;
 }
 

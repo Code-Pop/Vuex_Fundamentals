@@ -5,7 +5,7 @@ const storeConfiguration = {
   state: {
     user: 'Adam Jahr',
     events: [],
-    event: null
+    event: null,
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -16,7 +16,7 @@ const storeConfiguration = {
     },
     SET_EVENTS(state, events) {
       state.events = events
-    }
+    },
   },
   actions: {
     createEvent({ commit }, event) {
@@ -25,16 +25,16 @@ const storeConfiguration = {
           commit('ADD_EVENT', event)
           commit('SET_EVENT', event)
         })
-        .catch(error => {
+        .catch((error) => {
           throw error
         })
     },
     fetchEvents({ commit }) {
       return EventService.getEvents()
-        .then(response => {
+        .then((response) => {
           commit('SET_EVENTS', response.data)
         })
-        .catch(error => {
+        .catch((error) => {
           throw error
         })
     },
@@ -44,33 +44,33 @@ const storeConfiguration = {
         commit('SET_EVENT', event)
       } else {
         return EventService.getEvent(id)
-          .then(response => {
+          .then((response) => {
             commit('SET_EVENT', response.data)
           })
-          .catch(error => {
+          .catch((error) => {
             throw error
           })
       }
-    }
+    },
   },
   getters: {
-    getEventById: state => id => {
-      return state.events.find(event => event.id === id)
-    }
+    getEventById: (state) => (id) => {
+      return state.events.find((event) => event.id === id)
+    },
   },
-  modules: {}
+  modules: {},
 }
 
 const defaultOverrides = {
   state: () => {
     return {}
-  }
+  },
 }
 
 function makeState(initialState, overrideState) {
   return {
     ...(typeof initialState === 'function' ? initialState() : initialState),
-    ...overrideState()
+    ...overrideState(),
   }
 }
 
@@ -79,8 +79,8 @@ export function createStore(storeOverrides = defaultOverrides) {
     ...storeConfiguration,
     ...storeOverrides,
     ...{
-      state: makeState(storeConfiguration.state, storeOverrides.state)
-    }
+      state: makeState(storeConfiguration.state, storeOverrides.state),
+    },
   })
 }
 
