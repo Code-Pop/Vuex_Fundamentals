@@ -40,4 +40,8 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+.event-link {
+  color: #2c3e50;
+  text-decoration: none;
+}
 </style>
